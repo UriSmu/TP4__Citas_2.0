@@ -31,12 +31,23 @@ function App() {
     }
   ]);
 
+  const agregarCita = (nuevaCita) => {
+      setCitas([...citas, nuevaCita]);
+  };
+
+  const eliminarCita = (id) => {
+    if(confirm("Seguro que desea eliminar la cita?"))
+    {
+      setCitas(citas.filter(cita => cita.id !== id));
+    }
+  };
+
   return (
     <>
       <h1>Administrador de Pacientes</h1>
       <div className="container">
-        <Formulario />
-        <Listado citas={citas} />
+        <Formulario agregarCita={agregarCita} />
+        <Listado citas={citas} eliminarCita={eliminarCita} />
       </div>
     </>
   );
