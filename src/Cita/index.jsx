@@ -8,7 +8,7 @@ const Cita = ({ id, mascota, propietario, fecha, hora, sintomas, eliminarCita })
       <p>Fecha: <span>{fecha}</span></p>
       <p>Hora: <span>{hora}</span></p>
       <p>Síntomas: <span>{sintomas}</span></p>
-      <button onClick={() => eliminarCita(id)}>Eliminar ×</button>
+      <button class="button elimnar u-full-width" onClick={() => eliminarCita(id)}>Eliminar ×</button>
     </div>
   );
 };
