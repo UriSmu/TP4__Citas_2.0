@@ -49,6 +49,9 @@ const Formulario = ({ agregarCita }) => {
 
   };
 
+  
+  /*HAGO QUE SE PUEDA INGRESAR SOLO LA FECHA DE HOY, O LOS 30 DÍAS POSTERIORES*/
+  /*HAGO QUE SE PUEDA INGRESAR SOLO HORARIOS CADA 20mins, Y DE 9am A 6pm*/
   return (
     <div className="one-half column">
       <h2>Crear mi Cita</h2>
@@ -60,7 +63,7 @@ const Formulario = ({ agregarCita }) => {
         <input type="text" name="propietario" className="u-full-width" value={formCampos.propietario} onChange={handleChange} />
 
         <label>Fecha</label>
-        <input type="date" name="fecha" className="u-full-width" min={new Date().toISOString().split("T")[0]} value={formCampos.fecha} onChange={handleChange} />
+        <input type="date" name="fecha" className="u-full-width" min={new Date().toISOString().split("T")[0]} max={new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0]} value={formCampos.fecha} onChange={handleChange} /> 
 
         <label>Hora</label>
         <input type="time" name="hora" className="u-full-width" min="09:00" max="18:00" step="1200" value={formCampos.hora} onChange={handleChange} />
